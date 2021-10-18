@@ -3,13 +3,16 @@ package demo.northwind.business.abstracts;
 import demo.northwind.core.utilities.results.DataResult;
 import demo.northwind.core.utilities.results.Result;
 import demo.northwind.entities.concretes.Product;
-import org.springframework.data.jpa.repository.Query;
+import demo.northwind.entities.dtos.ProductWithCategoryDto;
 
 import java.util.List;
 
 public interface ProductService {
     DataResult<List<Product>> getAll();
+
     Result add(Product product);
+
+    Result deleteById(int id);
 
     DataResult<Product> getByProductName(String productName);
 
@@ -23,5 +26,7 @@ public interface ProductService {
 
     DataResult<List<Product>> findByProductNameStartsWith(String productName);
 
-    DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+    DataResult<List<Product>> getByNameAndCategoryId(String productName, int categoryId);
+
+    DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }

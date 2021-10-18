@@ -7,6 +7,7 @@ import demo.northwind.core.utilities.results.SuccessDataResult;
 import demo.northwind.core.utilities.results.SuccessResult;
 import demo.northwind.dataAccess.abstracts.ProductDao;
 import demo.northwind.entities.concretes.Product;
+import demo.northwind.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,27 +38,34 @@ public class ProductManager implements ProductService {
     }
 
     @Override
+    public Result deleteById(int id) {
+        this.productDao.deleteById(id);
+        return new SuccessResult("Product deleted");
+    }
+
+
+    @Override
     public DataResult<Product> getByProductName(String productName) {
         return new SuccessDataResult<Product>(this.productDao.getByProductName(productName),"Data listed");
     }
 
     @Override
     public DataResult<Product> getByProductNameAndCategoryId(String productName, int categoryId) {
-        return new SuccessDataResult<Product>(this.productDao.getByProductNameAndCategoryId(productName,categoryId),"Data listed");
+        return new SuccessDataResult<Product>(this.productDao.getByProductNameAndCategory_CategoryId(productName,categoryId),"Data listed");
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int categoryId) {
-        return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameOrCategoryId(productName,categoryId),"Data listed");
+        return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameOrCategory_CategoryId(productName,categoryId),"Data listed");
     }
 
     @Override
     public DataResult<List<Product>> getByCategoryIdIn(List categories) {
-        return new SuccessDataResult<List<Product>>(this.productDao.getByCategoryIdIn(categories),"Data listed");
+        return new SuccessDataResult<List<Product>>(this.productDao.getByCategory_CategoryIdIn(categories),"Data listed");
     }
 
     @Override
-    public DataResult<List<Product>> findByProductNameContains(String productName) {
+    public DataResult<List<Product> >findByProductNameContains(String productName) {
         return new SuccessDataResult<List<Product>>(this.productDao.findByProductNameContains(productName),"Data listed");
     }
 
@@ -67,7 +75,12 @@ public class ProductManager implements ProductService {
     }
 
     @Override
-    public DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId) {
-        return new SuccessDataResult<List<Product>>(this.productDao.getByNameAndCategory(productName,categoryId),"Data listed");
+    public DataResult<List<Product>> getByNameAndCategoryId(String productName, int categoryId) {
+        return new SuccessDataResult<List<Product>>(this.productDao.getByNameAndCategory_CategoryId(productName,categoryId),"Data listed");
+    }
+
+    @Override
+    public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+        return new SuccessDataResult<List<ProductWithCategoryDto>>(this.productDao.getProductWithCategoryDetails(),"Data listed");
     }
 }
