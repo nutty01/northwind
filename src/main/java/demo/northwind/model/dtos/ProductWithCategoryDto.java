@@ -1,4 +1,4 @@
-package demo.northwind.entities.dtos;
+package demo.northwind.model.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

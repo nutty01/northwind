@@ -1,4 +1,4 @@
-package demo.northwind.entities.concretes;
+package demo.northwind.model.concretes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,7 @@
-package demo.northwind.entities.concretes;
+package demo.northwind.model.concretes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;

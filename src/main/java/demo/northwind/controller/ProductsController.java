@@ -1,10 +1,10 @@
-package demo.northwind.api;
+package demo.northwind.controller;
 
 import demo.northwind.business.abstracts.ProductService;
 import demo.northwind.core.utilities.results.DataResult;
 import demo.northwind.core.utilities.results.Result;
-import demo.northwind.entities.concretes.Product;
-import demo.northwind.entities.dtos.ProductWithCategoryDto;
+import demo.northwind.model.concretes.Product;
+import demo.northwind.model.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

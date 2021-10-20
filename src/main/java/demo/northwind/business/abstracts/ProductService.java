@@ -2,8 +2,8 @@ package demo.northwind.business.abstracts;
 
 import demo.northwind.core.utilities.results.DataResult;
 import demo.northwind.core.utilities.results.Result;
-import demo.northwind.entities.concretes.Product;
-import demo.northwind.entities.dtos.ProductWithCategoryDto;
+import demo.northwind.model.concretes.Product;
+import demo.northwind.model.dtos.ProductWithCategoryDto;
 
 import java.util.List;
 
