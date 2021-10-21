@@ -13,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.HashMap;
@@ -54,7 +55,7 @@ public class UsersController {
     }
 
     @PutMapping(value = "/update/email")
-    public Result updateEmail(@Valid @RequestParam @NotBlank @Pattern(regexp ="^\\w+(\\.\\w+)*@\\p{javaLowerCase}{2,12}+(\\.\\p{javaLowerCase}{2,6})+$") String email, @RequestParam int id) {
+    public Result updateEmail(@Valid @RequestParam @NotBlank String email, @RequestParam int id) {
         return this.userService.updateEmail(email,id);
     }
 

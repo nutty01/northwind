@@ -40,12 +40,18 @@ public class UserManager implements UserService {
         return new SuccessDataResult<User>(this.userRepository.getByEmail(email), "User founded");
     }
 
-    @Override
-    public DataResult<User> updateEmail(String email, int id) {
-        User user = userRepository.getById(id);
-        user.setEmail(email);
-        return new DataResult<User>(userRepository.save(user), true,"updated");
-    }
 
+
+    //public DataResult<User> updateEmail(String email, int id) {
+     //   User user = userRepository.getById(id);
+      //  user.setEmail(email);
+       // return new DataResult<User>(userRepository.save(user), true,"updated");
+    //};
+
+    @Override
+    public Result updateEmail(String email, int id) {
+        userRepository.updateEmail(email,id);
+        return new Result(true,"Email updated!");
+    }
 
 }
