@@ -1,3 +1,3 @@
 # northwind
-Northwind Project
+Northwind Project:
 A demo Java Project 
